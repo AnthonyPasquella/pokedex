@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: blue;
+    border-style: solid;
+    border-color: gold;
+    font-weight: 400;
+    font-size: 24px;
+    text-align: center;
+    line-height: 1.3;
+    color: gold;
+}
+
+header {
+    padding: 10px;
+    text-align: center;
+    background: blue;
+    color: white;
+    font-size: 30px;
+    
+  }
