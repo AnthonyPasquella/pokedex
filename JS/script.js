@@ -1,4 +1,4 @@
-
+let pokemonRepository = (function () {
 
 let pokemonList =[
     {
@@ -35,7 +35,26 @@ let pokemonList =[
    //     document.write('<p>', pokemonList[i].name + ' - ' + pokemonList[i].weight + '- Middleweight Contender. </p>')
   //  }else {document.write('<p>', pokemonList[i].name + ' - ' + pokemonList[1].weight + ' - Super Featherweight. </p>')}
 
-  pokemonList.forEach(function(pokemon){
+ 
+
+function add(pokemon) {
+    pokemonList.push(pokemon);
+      }
+    
+function getAll() {
+    return pokemonList;
+      }
+    
+    return {
+        add: add,
+        getAll: getAll
+      };
+})();
+console.log(pokemonRepository.getAll()); // []
+pokemonRepository.add({ name: 'Pikachu', height:0.4, weight: 6, type: ['Electric'] });
+console.log(pokemonRepository.getAll()); //[ { name: 'Pikachu' } ]
+
+    pokemonRepository.getAll().forEach(function(pokemon){
     if (pokemon.height > 0.7){
         document.write('<p>', pokemon.name + ' - ' + pokemon.height + 'm - Whoa, that is big! </p>')
         }else if (pokemon.height <= 0.7 && pokemon.height > 0.3 ){
@@ -43,11 +62,10 @@ let pokemonList =[
         }else {document.write('<p>', pokemon.name + ' - ' + pokemon.height + 'm - I have seen bigger. </p>')}
   });
 
-    pokemonList.forEach(function(pokemon){
+    pokemonRepository.getAll().forEach(function(pokemon){
    if (pokemon.weight > 7){
         document.write('<p>', pokemon.name + ' - ' + pokemon.weight + 'kg - A Real Heavyweight! </p>')
         }else if (pokemon.weight <= 7 && pokemon.weight > 3 ){
         document.write('<p>', pokemon.name + ' - ' + pokemon.weight + 'kg - Middleweight Contender. </p>')
         }else {document.write('<p>', pokemon.name + ' - ' + pokemon.weight + 'kg - Super Featherweight. </p>')}
-    })
- 
+    });
